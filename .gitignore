@@ -24,5 +24,3 @@ results/smoke/
 # Temporary experiment files
 results/logs/
 results/test_details_*.npz
-
-README.md
