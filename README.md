@@ -24,13 +24,13 @@ validation, and test splits.
 
 The preprocessing pipeline:
 
-- removes article titles and section headings;
-- lowercases the text;
-- splits the text into sentences;
-- removes punctuation;
-- replaces numeric expressions with `<NUM>`;
-- constructs the vocabulary from the training split only;
-- maps words occurring fewer than five times to `<UNK>`;
+- removes article titles and section headings,
+- lowercases the text,
+- splits the text into sentences,
+- removes punctuation,
+- replaces numeric expressions with `<NUM>`,
+- constructs the vocabulary from the training split only,
+- maps words occurring fewer than five times to `<UNK>`,
 - adds `<START>`, `<END>`, and `<PAD>` special tokens.
 
 The resulting vocabulary contains 20,316 tokens and is shared by all four
@@ -60,6 +60,9 @@ word-level-autocomplete/
 ├── checkpoints/             # vocabulary and validation-selected models
 ├── pyproject.toml
 └── uv.lock
+
+```
+
 
 ## Installation
 
@@ -181,7 +184,6 @@ checkpoints/
 ```
 
 During inference, only the current sentence is used as context, matching the training setup. Out-of-vocabulary input words are mapped to `<UNK>`. Suggested words exclude `<PAD>`, `<START>`, `<UNK>`, and `<END>`. The end-of-sentence probability is handled separately.
-
 
 
 ## Reproducing the experiments
