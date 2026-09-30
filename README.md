@@ -159,6 +159,30 @@ To query all four models:
 uv run main.py --model all --text "in the" --top-k 5
 ```
 
+Available model choices are:
+
+```text
+bigram
+hmm
+rnn
+gru
+all
+```
+
+The pretrained files required for autocomplete are:
+
+```text
+checkpoints/
+├── bigram.npz
+├── hmm.npz
+├── rnn.pt
+├── gru.pt
+└── vocab.json
+```
+
+During inference, only the current sentence is used as context, matching the training setup. Out-of-vocabulary input words are mapped to `<UNK>`. Suggested words exclude `<PAD>`, `<START>`, `<UNK>`, and `<END>`. The end-of-sentence probability is handled separately.
+
+
 
 ## Reproducing the experiments
 
@@ -182,11 +206,11 @@ uv run run_experiments.py --stage test
 
 The stages perform the following tasks:
 
-1. `data` — loads and preprocesses WikiText-2 and prepares the shared vocabulary.
-2. `bigram` — trains and selects the Bayesian bigram model.
-3. `hmm` — trains and selects the HMM.
-4. `neural` — trains and selects the RNN and GRU models.
-5. `test` — evaluates the validation-selected models on the held-out test split.
+1. `data` - loads and preprocesses WikiText-2 and prepares the shared vocabulary.
+2. `bigram` - trains and selects the Bayesian bigram model.
+3. `hmm` - trains and selects the HMM.
+4. `neural` - trains and selects the RNN and GRU models.
+5. `test` - evaluates the validation-selected models on the held-out test split.
 
 Model selection is based on validation NLL.
 
