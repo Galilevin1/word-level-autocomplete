@@ -1,0 +1,29 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments and cache
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Data
+data/raw/
+data/processed/
+checkpoints/smoke/
+results/smoke/
+
+# Secrets
+.env
+.env.*
+
+# Temporary experiment files
+results/logs/
+results/test_details_*.npz
+
+README.md

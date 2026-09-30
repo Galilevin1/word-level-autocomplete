@@ -1,0 +1,21 @@
+[project]
+name = "bayes-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "datasets>=5.0.1",
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.3",
+    "torch>=2.14.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
